@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Complaint Form</title>
+    {% extends html %}
+    {% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/complaint.css' %}">
+</head>
+
+<body style="background-color:#FFFFF0">
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm">
+                {% if invalidData == 'true' %}
+                <div class="alert alert-warning" role="alert">
+                    Please enter valid form data.
+                </div>
+                {% elif invalidData == 'false' %}
+                <div class="alert alert-success" role="alert">
+                    Complaint submitted. Thank you for your feedback!
+                </div>
+                {% endif %}
+                <h1 style="color: #ec5800;">Complaint Form</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                {% load crispy_forms_tags %}
+                <form action="." method="post">
+                    {% csrf_token %}
+                    {% crispy form %}
+                </form>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

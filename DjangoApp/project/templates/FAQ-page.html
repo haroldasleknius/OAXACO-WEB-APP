@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ Page</title>
+
+  <style>
+    .accordion {
+      padding-top: 5%;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: #FFF !important;
+      background-color: #d65d18 !important;
+    }
+
+    .accordion-button:link,
+    .accordion-button:visited,
+    .accordion-button:hover,
+    .accordion-button:active {
+      background-color: #ff4800 !important;
+      color: #FFF !important;
+      text-decoration: none !important;
+      border: hidden !important;
+      border-color: #FFF !important;
+      box-shadow: 0px !important;
+    }
+
+    .accordion-button:focus {
+      z-index: 3;
+      border-color: #FFF !important;
+      outline: 0;
+      box-shadow: 0 0 0 .25rem #FFF !important;
+    }
+  </style>
+
+  {% extends "navigation.html" %}
+  {% block content %}
+  {% load static %}
+
+</head>
+
+<body style="background-color:#FFFFF0; padding-bottom: 10%;">
+
+  <div class="container">
+    <div class="row" style="padding-top: 10px;">
+      <div class="col-sm">
+        <h1 style="color: #ec5800;">Oaxaca Frequently Asked Questions</h1>
+        <hr>
+      </div>
+    </div>
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <p>How can I view the menu?</p>
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>Customers can view the range of dishes and foods we offer by clicking the
+              <a href="/project/menu/-1"><u><strong>Menu</strong></u></a> button in the navigation bar at the top of
+              the
+              page.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <p>How can I make a complaint?</p>
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>At Oaxaca, we value our customers' feedback and take all complaints seriously. If you have an issue you
+              would like to bring to our attention, please visit our <a href="{%url 'complaint' %}"><u><strong>Complaint
+                    Form</strong></u></a>, where a dedicated member of our staff will promptly review and address your
+              concerns within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            <p>What are your hours of operation?</p>
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>The hours of operation for Oaxaca are:
+              <li> Monday-Thursday: 11:00am-10:00pm </li>
+              <li> Friday-Saturday: 11:00am-11:00pm </li>
+              <li> Sunday: 10:00am-9:00pm </li>
+              <br>
+              Please note that these hours may vary on holidays and special occasions. We recommend calling ahead or
+              checking our website for any updates on our hours of operation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            <p>How can I learn more about Oaxaca?</p>
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>To learn more about Oaxaca you can visit our <a href="{%url 'about' %}"><u><strong>About
+                    Us</strong></u></a> page on our website to learn more about the
+              history, mission and vision of the restaurant, and our commitment to providing high-quality food
+              and service.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            <p>How can I place an order?</p>
+          </button>
+        </h2>
+        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p> To place an order, you can either visit our restaurant and order in-person, give us a call at
+              <strong>07263819283</strong> to place a takeout or delivery order. You can also order online through our
+              website,
+              visit our <a href="/project/menu/-1"><u><strong>Menu</strong></u></a> to discover a diverse selection of
+              delicious food options that cater to every palate.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+            <p>How do I create a customer account?</p>
+          </button>
+        </h2>
+        <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p> To create a customer account, you can visit our <a href="/project/register"><u><strong>Sign
+                    up</strong></u></a> page. This will usually involve
+              providing personal information such as your first and last name, as well as choosing a username and
+              password. If you already have an account you can visit our <a href="/project/login"><u><strong>Login</strong></u></a> 
+              page to sign in!
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingSeven">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+            <p>What card providers are supported for payments?</p>
+          </button>
+        </h2>
+        <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven"
+          data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p> We support Visa, Mastercard, American Express, as well as
+              alternative payment methods such as Stripe, Amazon Pay, Apple Pay, and PayPal. It is always best to check
+              with the specific company or organization to confirm which card providers they support.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

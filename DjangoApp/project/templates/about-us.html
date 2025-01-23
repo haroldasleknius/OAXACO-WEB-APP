@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>About Us</title>
+    {% extends html %}
+    {% block content %}
+</head>
+
+<body style="background-color: #fffff0;">
+    <div class="container" style="text-align: center;">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm">
+                <h1 style="color: #ec5800;">About Us</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <h3 style="color: #ec5800;padding-top: 20px">Who We Are</h3>
+                <p>Welcome to Oaxaca, a Mexican restaurant dedicated to bringing you the authentic flavors and vibrant
+                    culture of the beautiful region of Oaxaca. Our restaurant is named after this region as we believe
+                    it captures the essence of the unique culinary traditions and cultural heritage of Mexico.<br><br>
+
+                    Our team is made up of passionate food lovers who believe that great food is more than just
+                    sustenance; it's an experience that nourishes the soul. Our talented chefs use only the freshest
+                    ingredients to create bold and flavorful dishes that capture the essence of Oaxacan cuisine. We
+                    offer a diverse menu that includes classic Oaxacan dishes such as Mole, Tlayudas, Tamales, and
+                    deliciously prepared Tacos.<br><br>
+
+                    Whether you're joining us for a quick lunch or celebrating a special occasion with friends and
+                    family, we promise to deliver an unforgettable experience. We invite you to join us on a culinary
+                    journey to Oaxaca, where you can savor the rich flavors and immerse yourself in the vibrant culture
+                    of this beautiful region.</p><br>
+            </div>
+            <div class="col-sm">
+                {% load static %}
+                <img src="{% static 'grandfather-photo.jpg' %}" class="d-block w-100" style="border-radius: 15px;">
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px;">
+            <div class="col-sm">
+                <h1 style="color: #ec5800;">Our Family Motto</h1>
+                <p>"Sabor y tradición en cada bocado" - "Flavor and tradition in every bite"</p>
+            </div>
+        </div>
+
+
+        <div class="row" style="padding-top: 20px; padding-bottom: 30px;">
+            <div class="col-sm">
+                <img src="{% static 'mexico-flag.jpg' %}" class="d-block w-100" style="border-radius: 15px;">
+            </div>
+            <div class="col-sm">
+                <h3 style="color: #ec5800;padding-top: 20px;">We Care About The Environment</h3>
+                <p>At Oaxaca, we believe that we have a responsibility to protect and preserve our planet for future
+                    generations. That's why we are committed to minimizing our environmental impact in every way
+                    possible.<br><br>
+
+                    We understand that the food industry can have a significant impact on the environment, and we take
+                    this responsibility seriously. To reduce our carbon footprint, we prioritize sourcing ingredients
+                    locally to reduce transportation emissions. We work closely with local farmers and artisans to
+                    ensure that our ingredients are fresh, high-quality, and sustainably sourced.<br><br>
+
+                    We also strive to minimize our waste and use eco-friendly practices in our daily operations. Our
+                    team is committed to recycling, composting, and minimizing our water usage. We use environmentally
+                    friendly packaging for our to-go orders and strive to use reusable items in our restaurant wherever
+                    possible.
+                </p>
+            </div>
+        </div>
+
+
+
+
+        <div class="row" style="padding-top: 20px; padding-bottom: 30px;">
+            <div class="col-sm">
+                <h3 style="color: #ec5800;padding-top: 20px;">Our Locations</h3>
+                <p>Oaxaca HQ is our flagship location and the heart of our restaurant. Our restaurant is located in the
+                    beautiful city of San José in the state of Oaxaca, Mexico. San José is a small town known for its
+                    rich cultural heritage and stunning natural beauty. Our restaurant is located in the heart of the
+                    town, just a few minutes' walk from the central plaza.<br><br>
+
+                    At Oaxaca HQ, we offer a warm and inviting atmosphere where guests can experience the authentic
+                    flavors of Oaxacan cuisine. Our restaurant is beautifully designed with traditional Oaxacan
+                    elements, including colorful textiles, handcrafted pottery, and artwork from local artists.<br><br>
+
+                    In addition to our flagship location, we have plans to expand to other cities in Mexico and beyond.
+                    We are dedicated to sharing the unique flavors and vibrant culture of Oaxaca with people around the
+                    world. Our future locations will embody the same commitment to quality, sustainability, and
+                    community that our flagship location represents.<br><br>
+
+                    Whether you are visiting San José or one of our future locations, we invite you to join us for an
+                    unforgettable culinary journey to Oaxaca. Experience the rich flavors, vibrant culture, and warm
+                    hospitality that make Oaxacan cuisine truly special.
+                </p>
+            </div>
+            <div class="col-sm">
+                <img src="{% static 'location.png' %}" class="d-block w-100" style="border-radius: 15px;">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}

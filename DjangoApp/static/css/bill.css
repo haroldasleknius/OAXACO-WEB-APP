@@ -1,0 +1,32 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #FFFFF0;
+}
+
+.box1 {
+    padding: 8px 10px 20px 10px;
+    background-color: #edede7;
+    border-radius: 10px 10px 10px 10px;  
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.grid-item {
+    font-size: 20px;
+}
+.btn.btn-primary {
+    background-color: #EC5800;
+    border-color: #EC5800;
+    margin: 0 -5px 0 -5px;
+    margin-left: 85%;
+    width: 150px;
+    height: 75px;
+    min-width: 75px;
+    
+}
+.btn.btn-primary:hover {
+    background-color: #fa813b;
+}

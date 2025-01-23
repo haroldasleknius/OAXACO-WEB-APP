@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Payment</title>
+    {% extends "loginNav.html" %}
+    {% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/payment.css' %}">
+
+    <script src="https://kit.fontawesome.com/35ca1b15a2.js" crossorigin="anonymous"></script>
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+
+        .grid-item {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm">
+                <h1 style="color: #ec5800;">Review and Pay</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="box1">
+                    {% load crispy_forms_tags %}
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        {% crispy form %}
+                        <i class="fa-brands fa-cc-visa fa-2x" style="color:#1A1F71;"></i>
+                        <i class="fa-brands fa-cc-mastercard fa-2x" style="color: rgb(38,38,38)"></i>
+                        <i class="fa-brands fa-cc-amex fa-2x" style="color:#006BA6;"></i>
+                        <i class="fa-brands fa-cc-stripe fa-2x" style="color: rgb(99,110,211);"></i>
+                        <i class="fa-brands fa-cc-amazon-pay fa-2x" style="color: #FF9900;"></i>
+                        <i class="fa-brands fa-cc-apple-pay fa-2x" style="color: black;"></i>
+                        <i class="fa-brands fa-cc-paypal fa-2x" style="color: #3B7BBF;"></i>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="box1">
+                    <u>
+                        <h5>Customer Receipt</h5>
+                    </u>
+                    <hr>
+                    <h5>Date: <span id="current_date"></span></h5>
+                    <h5>Order #: 109</h5>
+                    <h5>Special Instructions: No pickles, No onions, No Lettuce </h5>
+                    <hr>
+
+                    <div class="grid-container">
+                        <div class="grid-item">Qty</div>
+                        <div class="grid-item" style="text-align: center;">Item</div>
+                        <div class="grid-item" style="text-align: right;">Price</div>
+                    </div>
+
+                    <hr>
+
+                    <div class="grid-container">
+                        {% for name, itemobj in basket.items %}
+                            <div class="grid-item">{{ itemobj.quantity }}</div>
+                            <div class="grid-item" style="text-align: center;">{{ itemobj.name }}</div>
+                            <div class="grid-item" style="text-align: right;">{{ itemobj.cost }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <hr>
+                    <h5 style="text-align: right;">Total: £{{ basket_value }}</h5>
+                    <hr>
+                    <h5>Tax info:</h5>
+                    <h5>VAT: £0.88</h5>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    date = new Date();
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+</script>
+
+</html>
+{% endblock %}

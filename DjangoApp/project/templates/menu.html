@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Oaxaca Menu</title>
+    {% extends html %}
+    {% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+    <style>
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row row-top">
+            <div class="col-sm">
+                <h1 style="text-align: center;" class="header">Menu</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm col-sm-category btn" onclick="location.href='/project/menu/-1';">
+                <h5>All Items</h5>
+            </div>
+            <div class="col-sm col-sm-category btn" onclick="location.href='/project/menu/1';">
+                <h5>Starters</h5>
+            </div>
+            <div class="col-sm col-sm-category btn" onclick="location.href='/project/menu/2';">
+                <h5>Mains</h5>
+            </div>
+            <div class="col-sm col-sm-category btn" onclick="location.href='/project/menu/3';">
+                <h5>Drinks</h5>
+            </div>
+            <div class="col-sm col-sm-category btn" onclick="location.href='/project/menu/4';">
+                <h5>Desserts</h5>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="row">
+                    {% for item in menu_items %}
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img class="card-img-top" src="{% static item.6 %}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.1 }}</h5>
+                                <p class="card-text">{{ item.3 }}</p>
+                                <div style="display: grid;">
+                                    <a class="btn btn-primary" href="/project/increment-basket/menu/{{ item.0 }}/{{ filter }}">Add To Tab</a>
+                                </div>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Allergerns: {{ item.4 }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-sm-3 tab-col">
+                <h3 class="tab-title">My Tab</h3>
+                <hr>
+                <div class="grid-container-end">
+                    <div class="grid-item"><strong>Date:</strong></div>
+                    <div class="grid-item" style="text-align: right;"><span id="current_date"></span></div>
+                </div>
+                <hr>
+                <div class="grid-container">
+                    <div class="grid-item"><strong>Item</strong></div>
+                    <div class="grid-item" style="text-align: right;"><strong>Price</strong></div>
+        
+                </div>
+                <div class="grid-container">
+                    {% for name, itemobj in basket.items %}
+                        <div class="grid-item"><span class="badge badge-q">x{{ itemobj.quantity }}</span> {{ itemobj.name }}</div>
+                        <div class="grid-item" style="text-align: right;">£{{ itemobj.cost }}</div>
+                        <div class="grid-item" style="text-align: right;">
+                            <span class="badge badge-i" onclick="location.href='/project/increment-basket/menu/{{name}}/{{ filter }}';">+</span> 
+                            <span class="badge badge-d" onclick="location.href='/project/decrement-basket/menu/{{name}}/{{ filter }}';">-</span>
+                        </div>
+                    {% endfor %}
+                </div>
+                <hr>
+                <div class="grid-container-end">
+                    <div class="grid-item"><strong>No. of Items:</strong></div>
+                    <div class="grid-item" style="text-align: right;">{{ number_of_items }}</div>
+                    <div class="grid-item"><strong>Total:</strong></div>
+                    <div class="grid-item" style="text-align: right;">£{{ basket_value }}</div>
+                </div>
+                <hr>
+                <div class="checkout-button">
+                {% if login is True %}
+                    <a class="btn btn-primary" style="text-align: right;margin-bottom: 25px;" href="/project/payment">Checkout</a>
+                {% elif login is False %}
+                    <a class="btn btn-primary" style="text-align: right;margin-bottom: 25px;" href="/project/login">Checkout</a>  
+                {% endif %}
+                <br>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    </div>
+</body>
+<script>
+    date = new Date();
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
+</script>
+</html>
+{% endblock %}

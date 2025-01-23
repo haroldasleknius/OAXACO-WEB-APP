@@ -1,0 +1,43 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: rgb(255, 255, 240)
+}
+
+main {
+    margin: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(229, 181, 57);
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    border-radius: 1rem;
+    background: rgb(251, 236, 179);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 4rem 0;
+    padding: 4rem;
+}
+  
+.waiter-table {
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 400px;
+    margin: 0 0.5rem 4rem;
+    background: rgb(229, 181, 57);
+    text-align: center;
+    position: relative;
+}
+
+.align-self-end {
+    margin-inline: 1rem;
+}

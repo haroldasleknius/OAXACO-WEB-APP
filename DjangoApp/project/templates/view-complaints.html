@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>View Customer Complaints</title>
+    {% extends "internal-navigation.html" %}
+    {% block content %}
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/view-complaints.css' %}">
+    <script src="{% static 'js/view-complaints.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm">
+                <h1 class="header">Customer Complaints</h1>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Complaint Message</th>
+                            <th scope="col">View Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for complaint in complaints %}
+                            <tr>
+                                <td>{{ complaint.1 }} {{ complaint.2 }}</td>
+                                <td>{{ complaint.5 }}</td>
+                                <td>
+                                    <select onchange="copyToClipboard()" id="contactinfo">
+                                        <option>{{ complaint.3 }}</option>
+                                        <option>{{ complaint.4 }}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+{% endblock %}

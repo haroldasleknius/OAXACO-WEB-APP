@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Customer - Orders</title>
+  {% extends "loginNav.html" %}
+  {% block content %}
+  {% load static %}
+
+  <style>
+    .btn {
+      border: hidden !important;
+    }
+
+    .button-container button {
+      margin-left: 1px;
+      margin-right: 1px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+
+    #btn a {
+      color: white;
+    }
+    .btn.btn-primary{
+        background-color: #EC5800;
+        border-color: #EC5800;
+        border-radius: 20px;
+        height: 50px;
+        margin-top: -10px;
+    }
+
+    .btn.btn-secondary {
+    background-color: #EC5800;
+    border-color: #EC5800;
+    margin: 0 -5px 0 -5px;
+    margin-left: 85%;
+    width: 150px;
+    height: 75px;
+    min-width: 75px;
+    
+    }
+    .btn.btn-secondary:hover {
+        background-color: #fa813b;
+    }
+  </style>
+
+</head>
+
+<body style="background-color: #FFFFF0;">
+  <div class="container">
+    <div class="row" style="padding-top: 10px;">
+      <div class="col-sm">
+        <h1 style="text-align: left;">Your Orders</h1>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <table class="table table-striped">
+          <thead>
+            <tr style="background-color: orange;">
+              <th scope="col">#</th>
+              <th scope="col">Date and Time</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Delivery Status</th>
+              <th scope="col">Manage Order</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for sale in sales %}
+
+            <tr>
+              <th scope="row">{{sale.0}}</th>
+              <td>{{ sale.5|date:"Y-m-d" }} — {{ sale.4|time:"H:i:s" }}</td>
+              <td>{{sale.1}} {{sale.2}}</td>
+
+              {% if sale.6 == False %}
+              <td>Not Delivered</td>
+
+              {% elif sale.6 == True %}
+              <td>Delivered</td>
+
+              {% endif %}
+
+              <td class="button-container" id="btn">
+                <button type="button" class="btn btn-primary" style="background-color: #ec5800;"><a
+                    href="/project/view-customer-order/{{sale.0}}"">View
+                    Order</a></button>
+
+              </td>
+            </tr>
+
+            {% endfor %}
+
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-secondary" onclick="location.href='/project/customer-landing'">Go Back</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+{% endblock %}

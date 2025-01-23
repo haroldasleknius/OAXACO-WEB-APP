@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Register</title>
+    {% extends "navigation.html" %}
+    {% block content %}
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/customer-register.css' %}">
+    <script src="https://kit.fontawesome.com/35ca1b15a2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="box1">
+
+                    <div class="row" style="padding-top: 10px;">
+                        <div class="col-sm">
+                            <hr>
+                            <h1 style="color: #EC5800;">Sign up</h1>
+                            <hr>
+                        </div>
+                    </div>
+
+                    {% if nameError == 'True' %}
+                    <div class="alert alert-warning" role="alert">
+                        Please enter a valid first/last name without any numbers.
+                    </div>
+                    {% endif %}
+
+                    {% if usernameError == 'True' %}
+                    <div class="alert alert-warning" role="alert">
+                        Sorry, that username is already taken. Please choose a different username.
+                    </div>
+                    {% elif usernameError == 'False' %}
+                    <div class="alert alert-success" role="alert">
+                        Congratulations! Your account has been successfully created. Welcome to our community!
+                    </div>
+                    {% endif %}
+
+                    {% if passwordError == 'True' %}
+                    <div class="alert alert-warning" role="alert">
+                        The passwords you entered do not match. Please try again.
+                    </div>
+                    {% endif %}
+
+                    {% load crispy_forms_tags %}
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        {% crispy form %}
+                    </form>
+
+                    <div style="width: 100%; height: 20px; border-bottom: 1px solid rgb(189, 183, 183);
+                    text-align: center; padding-top: 15px; padding-bottom: 20px;">
+                        <span style="font-size: 28px; padding: 0px 10px; background-color: #FFFFF0;">
+                            or
+                        </span>
+                    </div>
+                    <p style="display: flex; justify-content: center; align-items: center; padding-top: 30px;">Already
+                        have an account?&nbsp;<a href="{% url 'login' %}"> Sign in </a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}

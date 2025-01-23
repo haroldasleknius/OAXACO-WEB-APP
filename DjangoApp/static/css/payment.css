@@ -1,0 +1,32 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #FFFFF0;
+}
+
+.btn.btn-submit {
+    background-color: #EC5800;
+    border-color: #EC5800;
+    margin-top: 10px;
+    float: right;
+}
+
+.btn.btn-submit:hover {
+    background-color: #fa813b;
+}
+
+form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.box {
+    background-color: #edede7;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.box1 {
+    padding: 8px 10px 20px 10px;
+    background-color: #edede7;
+    border-radius: 10px 10px 10px 10px;  
+}

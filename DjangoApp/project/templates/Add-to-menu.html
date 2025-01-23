@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+    <head>
+        <title>Add to menu</title>
+        {% extends "navigation.html" %}
+        {% block content %}
+        {% load static %}
+        <style>
+            body {background-color: #fffff0}
+            body {font-family: 'Roboto', sans-serif;}
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1> Add New Menu item </h1>
+                {% if error_message %}
+                    <div class="alert alert-danger">
+                        {{ error_message }}
+                    </div>
+                {% endif %}
+
+                <div class="col-sm">
+                    {% load crispy_forms_tags %}
+                    <form action="." method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% crispy form %}
+                    </form>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+        </div>
+    </body>
+
+</html>
+{% endblock %}

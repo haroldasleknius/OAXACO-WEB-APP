@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>View Order</title>
+    {% extends "internal-navigation.html" %}
+    {% block content %}
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .col-sm-status {
+            padding-top: 15px;
+            border-radius: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 2px;
+
+            box-shadow: 2px 4px 5px rgb(156, 161, 162);
+        }
+
+        .col-sm-tab {
+            text-align: left;
+            background-color: #e4e4e4;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm">
+                <h1 style="text-align: left;" class="header">Order No #{{ sale_id }}</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm col-sm-status col-sm-tab">
+                <h5>Starters:</h5>
+                <hr>
+                <ul>
+                    {% for starter in starters %}
+                    <li>{{ starter.6 }} x{{ starter.4 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm col-sm-status col-sm-tab">
+                <h5>Mains:</h5>
+                <hr>
+                <ul>
+                    {% for main in mains %}
+                    <li>{{ main.6 }} x{{ main.4 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm col-sm-status col-sm-tab">
+                <h5>Desserts:</h5>
+                <hr>
+                <ul>
+                    {% for dessert in desserts %}
+                    <li>{{ dessert.6 }} x{{ dessert.4 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm col-sm-status col-sm-tab">
+                <h5>Drinks:</h5>
+                <hr>
+                <ul>
+                    {% for drink in drinks %}
+                    <li>{{ drink.6 }} x{{ drink.4 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm col-sm-status col-sm-tab">
+                <h5>Customer Additional Requirements:</h5>
+                <hr>
+                <p>Having additional dietary requirements at a restaurant can present some challenges, as not all
+                    restaurants may be able to accommodate them. It is important to communicate your needs clearly to
+                    the restaurant staff, and to inquire about any specific dishes that may be suitable for your dietary
+                    requirements. Some restaurants may offer specialized menus or have trained chefs who can prepare
+                    meals that meet your needs. It is also a good idea to do some research beforehand, by checking the
+                    restaurant's website or contacting them ahead of time, to ensure that they can accommodate your
+                    dietary needs. With some careful planning and communication, it is possible to enjoy a delicious
+                    meal at a restaurant that meets your dietary requirements.</p>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm col-sm-status col-sm-tab">
+                {% if user == "kitchen" %}
+                <a class="btn btn-primary" style="margin-bottom: 13px;" href="/project/kitchen-dashboard/-1">Back to
+                    Kitchen Dashboard</a>
+                {% elif user == "waiter" %}
+                <a class="btn btn-primary" style="margin-bottom: 13px;" href="/project/waiter-orders">Back to
+                    View Orders</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}

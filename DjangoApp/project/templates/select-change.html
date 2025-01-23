@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+    <head>
+        <title>Change menu item select</title>
+        {% extends "navigation.html" %}
+        {% block content %}
+        {% load static %}
+        <style>
+            body {background-color: #fffff0}
+            body {font-family: 'Roboto', sans-serif;}
+        </style>
+    </head>
+
+    <body style = "background-color: #fffff0;">
+        <div class="container">
+            <div class="row">
+                <h1> Choose menu item to be changed</h1>
+                <div class="col-sm">
+                    {% load crispy_forms_tags %}
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        {% crispy form %}
+                    </form>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+        </div>
+    </body>
+
+</html>
+{% endblock %}

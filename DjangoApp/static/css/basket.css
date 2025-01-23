@@ -1,0 +1,14 @@
+.btn-primary {
+    color:rgb(255, 255, 255);
+    --bs-btn-bg: rgb(236,88,0);
+    --bs-btn-hover-bg: rgb(230, 185, 66);
+    --bs-btn-border-color: rgb(236,88,0);
+    --bs-btn-active-bg: rgb(230, 185, 66);
+    --bs-btn-hover-border-color: rgb(230, 185, 66);
+    --bs-btn-active-border-color: rgb(230, 185, 66);
+    --bs-btn-border-radius: 0rem;
+    position:relative;
+    bottom: -5.5px; 
+    padding-top: 1px;
+    padding-bottom: 1px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@700&display=swap"
+    rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@100&display=swap" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Error page not found</title>
+
+    <style>
+        .bucket {
+            position: relative;
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .title {
+            font-family: 'Sofia Sans Extra Condensed', sans-serif;
+            font-size: 80px;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+              .error {
+                font-size: 10px;
+              }
+
+              .title {
+                font-size: 40px;
+              }
+        }
+    </style>
+</head>
+
+<body style="text-align: center;">
+    {% extends "navigation.html" %}
+    {% block content %}    
+    <div class="bucket">
+        {% load static %}
+        <img src="{% static 'mexico_background_image.jpg' %}" style="width:100%; font-family:" class="img-fluid" />
+        <div class="centered" style="font-family: 'Asap', sans-serif;">
+            <h2 class="error">Sorry, the page you requested could not be found.</h2>
+            <h2 class="error">The URL may be misspelled or the page you're looking for is no longer available.</h2>
+            <h2 class="error">Click here to go <a href="/project">home</a>.</h2>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

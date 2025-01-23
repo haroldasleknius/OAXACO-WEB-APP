@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Login Form</title>
+    {% extends "navigation.html" %}
+    {% load crispy_forms_tags %}
+    {% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+    <body style="font-family: 'Roboto', sans-serif;">
+    <img src="https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80" alt="Responsive image" style="background-size: 100% 100%; height:130vh; width:100vw; object-fit: cover; object-position: 50% 50%;">
+    <div class="container">
+        {% if login == 'true' %}
+        <div class="alert alert-warning" role="alert" style=" transform: translate(-50%,-1858%); color:red; font-weight: bold; width: 100vw; text-align: center;
+        height:7vh; min-height: 30px; margin-left: 50%; margin-right: 50%;">
+            Login Details Are Incorrect
+        </div>
+        {% elif login == 'false' %}
+        <div class="alert alert-success" role="alert" style=" transform: translate(-50%,-1858%); color:rgb(6, 185, 6); font-weight: bold; width: 100vw; text-align: center;
+        height:7vh; min-height: 30px; margin-left: 50%; margin-right: 50%;">
+            Login Details Are Correct
+        </div>
+        {% endif %}
+        <div class="centre">
+            <h1>Login</h1>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {% crispy form %}
+            </form>
+            <div class ="register">Don't have an account? <a href="{% url 'register' %}"> Register Here</a></div>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}

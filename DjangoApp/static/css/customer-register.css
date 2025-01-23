@@ -1,0 +1,26 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #FFFFF0;
+}
+
+.btn.btn-submit {
+    background-color: #EC5800;
+    border-color: #EC5800;
+    margin-top: 10px;
+    width: 30%;
+    height: 50px;
+    margin-left: 34%;
+    margin-right: 30%;
+}
+
+.btn.btn-submit:hover {
+    background-color: #fa813b;
+}
+
+form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}

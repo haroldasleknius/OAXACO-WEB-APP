@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Welcome to Oaxaca</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    
+    </head>
+    
+
+    <body>
+        {% include "navigation.html" %}
+        {% block content %}
+        {% load static %}
+        <div class="container-fluid GRID" style="background-image: url('https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80');">
+            <div class="info">
+                <div class="row align-items-center" style="height: 120px;">
+                    <div class="col-md-12 d-flex justify-content-center">
+                      <img src="{% static 'hat.png' %}" class="img-fluid hat">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1 class="my-3">MEXICAN KITCHEN</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr class="line"/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2> ★ Est. 2007 ★ </h2>
+                    </div>
+                </div>
+                <div class="row welcome">
+                    <div class="col-md-12 text-center">
+                        <h3 class="normal"> Welcome to the wonderful world of Oaxaca. Dive in: </h3>
+                    </div>
+                </div>
+                <div class="row buttons text-center">
+                    <div class="col-md-6 ">
+                        <a href="{% url 'register' %}">
+                            <button class="shadow p-2 btn btn-warning register">REGISTER</button>
+                        </a>
+                    </div>
+                    <div class="col-md-6 ">
+                        <a href="{% url 'login' %}">
+                            <button class="shadow p-2 btn btn-warning login">LOGIN</button>      
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>

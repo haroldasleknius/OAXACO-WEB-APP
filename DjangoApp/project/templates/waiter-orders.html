@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Waiter - Orders</title>
+  {% extends "internal-navigation.html" %}
+  {% block content %}
+  {% load static %}
+
+  <style>
+    .btn:hover {
+      background-color: rgb(90, 85, 85) !important;
+    }
+
+    .btn {
+      border: hidden !important;
+    }
+
+    .button-container button {
+      margin-left: 1px;
+      margin-right: 1px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+
+    #btn a {
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body style="background-color: #FFFFF0;">
+  <div class="container">
+    <div class="row" style="padding-top: 10px;">
+      <div class="col-sm">
+        <h1 style="text-align: left;">Customer Orders</h1>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <table class="table table-striped">
+          <thead>
+            <tr style="background-color: orange;">
+              <th scope="col">#</th>
+              <th scope="col">Date and Time</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Kitchen Status</th>
+              <th scope="col">Delivery Status</th>
+              <th scope="col">Manage Order</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for sale in sales %}
+
+            <tr>
+              <th scope="row">{{sale.0}}</th>
+              <td>{{ sale.5|date:"Y-m-d" }} — {{ sale.4|time:"H:i:s" }}</td>
+              <td>{{sale.1}} {{sale.2}}</td>
+
+              {% if sale.3 == 1 %}
+              <td>Pending</td>
+
+              {% elif sale.3 == 2 %}
+              <td>Preparing</td>
+
+              {% elif sale.3 == 3 %}
+              <td>Preparing</td>
+
+              {% elif sale.3 == 4 %}
+              <td>Completed</td>
+
+              {% endif %}
+
+              {% if sale.6 == False %}
+              <td>Not Delivered</td>
+
+              {% elif sale.6 == True %}
+              <td>Delivered</td>
+
+              {% endif %}
+
+              <td class="button-container" id="btn">
+                <button type="button" class="btn btn-primary" style="background-color: #ec5800;"><a
+                    href="/project/view-order/{{sale.0}}/waiter">View
+                    Order</a></button>
+
+                    {% if sale.6 == True %}
+                    <button type="button" class="btn btn-primary" style="background-color: rgb(84, 162, 42);"><a
+                      href="/project/update-delivery-status/{{sale.0}}">Mark Delivered</a></button>
+
+                    {% elif sale.6 == False %}
+                    <button type="button" class="btn btn-primary" style="background-color: rgb(149, 151, 148);"><a
+                      href="/project/update-delivery-status/{{sale.0}}">Mark Delivered</a></button>
+
+                    {% endif %}
+
+                <button type="button" class="btn btn-secondary" style="background-color: red;"><a href="/project/cancel-order/{{sale.0}}">Cancel
+                    Order</a></button>
+              </td>
+            </tr>
+
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+{% endblock %}

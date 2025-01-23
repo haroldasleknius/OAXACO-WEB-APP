@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Tab</title>
+    {% extends html %}
+    {% block content %}
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/view-complaints.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/basket.css' %}">
+
+</head>
+<body style="background-color: #FFFFF0;">
+    <div class="container">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-sm">
+                <h1 class="header">My Tab</h1>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 50px">Quantity</th>
+                            <th scope="col">Item Name</th>
+                            <th scope="col" style="width: 120px">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for name, itemobj in basket.items %}
+                        <tr>
+                            <td>{{ itemobj.quantity }}</td>
+                            <td>{{ itemobj.name }}</td>
+                            <td style="text-align: center;">
+                                <div style="display:inline-block;">
+                                    <a class="btn btn-success"  href="/project/increment-basket/view/{{name}}/0">+</a>
+                                    <a class="btn btn-danger" href="/project/decrement-basket/view/{{name}}/0">-</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div style="text-align: right;">
+                    <h1>Total: £{{ basket_value }}</h1>
+                    {% if login is True %}
+                        <a class="btn btn-primary" style="text-align: right;margin-bottom: 25px;" href="/project/payment">Checkout</a>
+                    {% elif login is False %}
+                        <a class="btn btn-primary" style="text-align: right;margin-bottom: 25px;" href="/project/login">Checkout</a>  
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+{% endblock %}

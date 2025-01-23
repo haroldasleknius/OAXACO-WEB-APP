@@ -1,0 +1,20 @@
+.btn-submit {
+    background-color: #EC5800;
+    border-color: #d65104;
+    border-width: 2px;
+    border-style: solid;
+    color: white;
+    float: right;
+}
+
+.btn-submit:hover {
+    background-color: #ff6105; /* Green */
+    border-color: #d65104;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

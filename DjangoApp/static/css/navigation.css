@@ -1,0 +1,49 @@
+.bg-body-tertiary {
+    --bs-tertiary-bg-rgb: 255,255,240;
+}
+
+.navbar-brand {
+    padding: 0rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    letter-spacing: 0.6rem;
+    color: rgb(236, 88, 0);
+}
+
+.navbar {
+    --bs-navbar-nav-link-padding-x: 2rem;
+    --bs-navbar-padding-y: 0rem;
+    --bs-navbar-color: rgb(236,88,0);
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+.rgbvalue {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: rgb(255, 255, 240);
+    background-color: rgb(255, 255, 240);
+}
+
+.rgbvalue a:hover {
+    color: rgb(230, 185, 66);
+}
+
+.btn-primary {
+    color:rgb(255, 255, 255);
+    --bs-btn-bg: rgb(236,88,0);
+    --bs-btn-hover-bg: rgb(230, 185, 66);
+    --bs-btn-border-color: rgb(236,88,0);
+    --bs-btn-active-bg: rgb(230, 185, 66);
+    --bs-btn-hover-border-color: rgb(230, 185, 66);
+    --bs-btn-active-border-color: rgb(230, 185, 66);
+    --bs-btn-border-radius: 0rem;
+    position:relative;
+    bottom: -5.5px; 
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.btn-primary:hover {
+    color:rgb(236, 88, 0) !important;
+}
